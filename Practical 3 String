@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>String Operations</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        } 
+        input, 
+        button { 
+            margin: 5px; 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+    <h1>String Operations</h1> 
+ 
+    <!-- Input Field for Entering a String --> 
+    <input type="text" id="inputString" placeholder="Enter a string">    
+    <!-- Button to Trigger Operations --> 
+    <button onclick="performOperations()">Perform Operations</button> 
+ 
+    <!-- Results Section --> 
+    <h2>Results:</h2> 
+    <p id="reversed">Reversed String: </p> 
+    <p id="replaced">Replaced String: </p> 
+    <p id="palindrome">Is Palindrome: </p> 
+ 
+    <script> 
+        // Function to Perform All String Operations 
+       function performOperations() {
+    const str = document.getElementById('inputString').value.trim();
+
+    if (!str) {
+        alert("Please enter a string.");
+        return;
+    }
+
+    // Reverse the string
+    const reversedString = str.split("").reverse().join("");
+    document.getElementById('reversed').innerText = `Reversed String: ${reversedString}`;
+
+    // Replace spaces with underscores
+    const replacedString = str.replace(/ /g, "_");
+    document.getElementById('replaced').innerText = `Replaced String: ${replacedString}`;
+
+    // Check if the string is a palindrome
+    const cleanedString = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+    const isPalindrome = cleanedString === cleanedString.split("").reverse().join("");
+    document.getElementById('palindrome').innerText = `Is Palindrome: ${isPalindrome ? "Yes" : "No"}`;
+}
+
+    </script> 
+ 
+</body> 
+ 
+</html> 
