@@ -1,0 +1,21 @@
+<html>
+<body>
+<h1>Multiplication Table</h1>
+Enter a number:
+<input type="text" id="num" /><br /><br />
+Enter limit:
+<input type="text" id="limit" />
+<input type="button" value="Calculate" onClick="multiply()" />
+<p id="result"></p>
+<script>
+function multiply() {
+var n = document.getElementById('num').value;
+var I = document.getElementById('limit').value;
+var out = "";
+for (var i = 1; i <= I; i++) {
+out = out+i+" x "+n+" = "+i*n+"<br/>";
+}
+document.getElementById("result").innerHTML = out; }
+</script>
+</body>
+</html>
