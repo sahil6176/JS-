@@ -37,7 +37,8 @@ input {
             let result = ""; 
             // Method 1: Equality Check 
             result += `Equality Check: ${str1 === str2 ? 'Equal' : 'Not Equal'}<br>`; 
-            // Method 2: Length Comparison result += `Length Comparison: ${str1.length === str2.length ? 'Same Length' : 'Different Length'}<br>`; 
+            // Method 2: Length Comparison 
+            result += `Length Comparison: ${str1.length === str2.length ? 'Same Length' : 'Different Length'}<br>`; 
             // Method 3: Locale Compare 
             result += `Locale Compare: ${str1.localeCompare(str2) === 0 ? 'Equal' : 'Not Equal'}<br>`; 
             // Method 4: Case Insensitive Comparison 
