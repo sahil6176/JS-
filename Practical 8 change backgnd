@@ -1,51 +1,35 @@
-//index.html
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home Page</title>
-<meta charset="UTF-8">
-<script src="script.js" defer></script>
-<style>
-body {
-transition: background-color 0.5s; /* smooth change */
+<title>New Document</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<script language="javascript">
+function ChangeColor() {
+document.body.style.backgroundColor = 'Red';
+setTimeout(ChangeColor2, 2000); // Corrected the function name call without quotes
 }
-a {
-cursor: pointer;
-display: inline-block;
-margin-bottom: 10px;
-font-size: 18px;
-text-decoration: underline;
+function ChangeColor2() {
+document.body.style.backgroundColor = 'Pink';
+setTimeout(ChangeColor3, 2000); // Corrected the function name call without quotes
 }
-input {
-padding: 5px;
-font-size: 16px;
+function ChangeColor3() {
+document.body.style.backgroundColor = 'Green';
+setTimeout(ChangeColor4, 2000); // Corrected the function name call without quotes
 }
-</style>
+function ChangeColor4() {
+document.body.style.backgroundColor = 'Red';
+}
+// Function to change input field background color
+function myFunction(x) {
+x.style.background = "yellow";
+}
+</script>
 </head>
 <body>
-<h1>Welcome to My Home Page</h1>
-<button onmouseover="changeBackgroundSequence()">Change Background
-Color</button><br><br>
-<br>
-Enter your name: <input type="text" onfocus="highlightInput(this)">
+<a onmouseover="ChangeColor()" style="cursor: pointer;">Bg Colour</a><br> <!-- Used pointer cursor to indicate a clickable link -->
+Enter your name: <input type="text" onfocus="myFunction(this)">
 </body>
 </html>
-//script.js
-// Function to change background color sequentially on mouseover
-function changeBackgroundSequence() {
-document.body.style.backgroundColor = 'Red';
-setTimeout(() => {
-document.body.style.backgroundColor = 'Pink';
-}, 2000);
-
-setTimeout(() => {
-document.body.style.backgroundColor = 'Green';
-}, 4000);
-setTimeout(() => {
-document.body.style.backgroundColor = 'Red';
-}, 6000);
-}
-// Function to change input field background color on focus
-function highlightInput(element) {
-element.style.backgroundColor = 'lightyellow';
-}
