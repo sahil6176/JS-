@@ -1,21 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Operations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    h2 {
+      color: #222;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, button {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Array Operations in JavaScript</h2>  
+  <p><b>Initial Array:</b> <span id="array"></span></p>  
 
-// Create an array
-let arr = [10, 20, 30, 40, 50, 60];
-console.log("Original Array:", arr);
+  <!-- Remove specific element -->
+  <label for="removeValue">Enter value to remove:</label>
+  <input type="text" id="removeValue">
+  <button onclick="removeElement()">Remove</button>
+  <br><br>
 
-// 1. Remove specific element from the array (e.g., remove 30)
-let elementToRemove = 30;
-arr = arr.filter(item => item !== elementToRemove);
-console.log("After removing", elementToRemove + ":", arr);
+  <!-- Check if contains -->
+  <label for="checkValue">Enter value to check:</label>
+  <input type="text" id="checkValue">
+  <button onclick="checkContains()">Check</button>
+  <br><br>  
 
-// 2. Check if array contains a specified value (e.g., check for 40)
-let valueToCheck = 40;
-if (arr.includes(valueToCheck)) {
-    console.log("Array contains", valueToCheck);
-} else {
-    console.log("Array does not contain", valueToCheck);
-}
+  <!-- Empty array -->
+  <button onclick="emptyArray()">Empty Array</button>  
 
-// 3. Empty the array
-arr.length = 0;
-console.log("Array after emptying:", arr);
+  <h3>Result:</h3>
+  <div id="result"></div>  
+
+  <script>
+    // Initialize array
+    let arr = ["apple", "banana", "cherry", "date", "banana"];
+    document.getElementById("array").innerText = JSON.stringify(arr);    
+
+    // Function to show result message
+    function showResult(message) {
+      let resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `<p>${message}</p>`;
+    }
+
+    // Remove all occurrences of entered value
+    function removeElement() {
+      let value = document.getElementById("removeValue").value.trim();
+      if (value === "") {
+        showResult("Please enter a value to remove.");
+        return;
+      }
+      arr = arr.filter(item => item !== value);
+      document.getElementById("array").innerText = JSON.stringify(arr);
+      showResult(`Removed "${value}" from array.`);
+      document.getElementById("removeValue").value = "";
+    }    
+
+    // Check if array contains the entered value
+    function checkContains() {
+      let value = document.getElementById("checkValue").value.trim();
+      if (value === "") {
+        showResult("Please enter a value to check.");
+        return;
+      }
+      let contains = arr.includes(value);
+      showResult(
+        contains
+          ? `Yes, array contains "${value}".`
+          : `No, array does not contain "${value}".`
+      );
+      document.getElementById("checkValue").value = "";
+    }    
+
+    // Empty the entire array
+    function emptyArray() {
+      arr.length = 0;
+      document.getElementById("array").innerText = JSON.stringify(arr);
+      showResult("Array has been emptied.");
+    }
+  </script>
+</body>
+</html>
+
